@@ -24,6 +24,8 @@ const fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuan
 var productInfo = new Object();
 
 var request;
+var products;
+
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
@@ -31,9 +33,12 @@ if (window.XMLHttpRequest) {
 }
 
 request.open('GET', 'products.json');
-console.log(request);
-products = JSON.parse(products);
-console.log(products);
+request.onreadystatechange = function() {
+    if ((request.status ===200) && (request.readyState===4)) {
+        console.log(request.responseText);
+    }
+}
+request.send();
 
 for (let i = 0; i < fields.length; i++){
     fields[i].addEventListener("click", function(e) { hideError(fields[i]) });
