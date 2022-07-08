@@ -46,7 +46,7 @@ for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
 
-searchID.addEventListener("click", idSearch(searchID));
+searchID.addEventListener("click", idSearch());
 submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
 
@@ -259,7 +259,12 @@ function idSearch() {
 }
 
 function idSearch(idField) {
-    let testID = idField.value;
+    var testID;
+    if (idField) {
+        testID = idField.value;
+    } else {
+        testID = updateID.value;
+    }
     for (var product in products) {
         if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
