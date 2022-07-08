@@ -36,6 +36,7 @@ request.open('GET', 'js/products.json');
 request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         products = JSON.parse(request.responseText);
+        products = products[0];
         console.log(products);
     }
 }
@@ -45,7 +46,7 @@ for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
 
-searchID.addEventListener("click", idSearch);
+searchID.addEventListener("click", idSearch(searchID));
 submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
 
@@ -299,7 +300,7 @@ function flagQuantity(quantityField) {
 }
 
 function validateDescription(descriptionField) {
-    return (descriptionField.length > 0);
+    return (descriptionField.value.length > 0);
 }
 
 function flagDescription(descriptionField) {
@@ -316,7 +317,7 @@ function flagCategory(categoryField) {
 
 function validatePrice(priceField) {
     let x = priceField.value;
-    return ($.isNumeric(x) && x.length > 0);
+    return ($.isNumeric(x) && x > 0);
 }
 
 function flagPrice(priceField) {
