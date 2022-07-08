@@ -259,14 +259,12 @@ function idSearch(e) {
 
 function idCheck(idField) {
     var testID = idField.value;
-    for (var product in products) {
+    for (let product in products) {
         product = products[product];
         if (product.id == testID) { //match found
-            showError(idField);
             return false;
         }
     }
-    hideError(idField);
     return true;
 }
 
