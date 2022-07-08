@@ -238,9 +238,8 @@ function flagTitle(titleField) {
 
 function idSearch(e) {
     var testID = updateID.value;
-
-    for (var product in products) {
-        if (product.id == testID) { //match found
+    for (var i = 0; i < products.length; i++) {
+        if (products[i].id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
             console.log("match found!");
             updateAuthor = product.author;
@@ -316,7 +315,7 @@ function flagCategory(categoryField) {
 }
 
 function validatePrice(priceField) {
-    let x = priceField.value;
+    var x = priceField.value;
     return ($.isNumeric(x) && x > 0);
 }
 
