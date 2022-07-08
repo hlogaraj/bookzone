@@ -290,7 +290,8 @@ function flagID(idField) {
 }
 
 function validateQuantity(quantityField) {
-    return (Number.isInteger(quantityField.value) && quantityField.value > 0);
+    let x = Number(quantityField.value);
+    return (Number.isInteger(x) && x > 0);
 }
 
 function flagQuantity(quantityField) {
