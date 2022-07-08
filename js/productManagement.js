@@ -141,7 +141,6 @@ function validateUpdate(e) {
     valid = valid && validateQuantity(updateQuantity);
     valid = valid && validatePrice(updatePrice);
 
-    flagID(updateID);
     flagTitle(updateTitle);
     flagName(updateAuthor);
     flagDescription(updateDescription);
@@ -260,19 +259,27 @@ function idSearch(e) {
 
 function idCheck(idField) {
     var testID = idField.value;
-    for (let product in products) {
-        product = products[product];
+    for (var product in products) {
         if (product.id == testID) { //match found
-            showError(idField);
-            return false;
+            document.getElementById("id-match").classList.remove("hidden");
+            console.log("match found!");
+            updateAuthor.value = product.author;
+            updateTitle.value = product.title;
+            updateCategory.value = product.category;
+            updateDescription.value = product.description;
+            updateQuantity.value = product.quantity;
+            updatePrice.value = product.price;
+            return true;
         }
     }
-    hideError(idField);
-    return true;
+    document.getElementById("id-match").classList.add("hidden");
+    showError(updateID);
+    console.log("no matches");
+    return false;
 }
 
 function validateID(idField) {
-    return (/(^\d{4}$)/.test(idField.value) && idCheck(idField)); //check if ID is already taken
+    return (/(^\d{4}$)/.test(idField.value) && !idCheck(idField.value)); //check if ID is already taken
 }
 
 function flagID(idField) {
@@ -285,7 +292,6 @@ function validateQuantity(quantityField) {
     let x = Number(quantityField.value);
     return (Number.isInteger(x) && x > 0);
 }
-
 function flagQuantity(quantityField) {
     if (!validateQuantity(quantityField)) {
         showError(quantityField);
