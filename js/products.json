@@ -1,6 +1,6 @@
 [
   {
-    "CoverStory": {
+    "Cover Story": {
       "id": "0001",
       "title": "Cover Story",
       "author": "Susan Rigetti",
@@ -9,7 +9,7 @@
       "quantity": "1",
       "price": "13.49"
     },
-    "HelloSummer": {
+    "Hello Summer": {
       "id": "0002",
       "title": "Hello Summer",
       "author": "Mary Kay Andrews",
