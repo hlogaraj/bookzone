@@ -35,8 +35,8 @@ if (window.XMLHttpRequest) {
 request.open('GET', 'js/products.json');
 request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
-        products = JSON.parse(request.responseText);
-        products = products[0];
+        json = JSON.parse(request.responseText);
+        products = json[0];
         console.log(products);
     }
 }
