@@ -46,7 +46,7 @@ for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
 
-searchID.addEventListener("click", idSearch(e));
+searchID.addEventListener("click", idSearch);
 submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
 
