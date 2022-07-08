@@ -236,7 +236,7 @@ function flagTitle(titleField) {
 }
 
 function idSearch(e) {
-    var testID = updateID.value;
+    let testID = updateID.value;
     for (let product in products) {
         product = products[product];
         if (product.id == testID) { //match found
@@ -258,7 +258,7 @@ function idSearch(e) {
 }
 
 function idCheck(idField) {
-    var testID = idField.value;
+    let testID = idField.value;
     for (let product in products) {
         product = products[product];
         if (product.id == testID) { //match found
@@ -305,7 +305,7 @@ function flagCategory(categoryField) {
 }
 
 function validatePrice(priceField) {
-    var x = priceField.value;
+    let x = priceField.value;
     return ($.isNumeric(x) && x > 0);
 }
 
