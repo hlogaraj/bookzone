@@ -35,7 +35,7 @@ if (window.XMLHttpRequest) {
 request.open('GET', 'js/products.json');
 request.onreadystatechange = function() {
     if ((request.status ===200) && (request.readyState===4)) {
-        console.log(request.responseText);
+        products = JSON.parse(request.responseText);
     }
 }
 request.send();
@@ -67,7 +67,7 @@ function newToJSON() { //takes care of storing values of the input fields into a
     }
     products.push(productInfo);
     products = JSON.stringify(productInfo, null, 2);
-    fs.writeFile('products.json', productInfo, (err) => {
+    fs.writeFile('js/products.json', productInfo, (err) => {
         if (err) {
             throw err;
         }
