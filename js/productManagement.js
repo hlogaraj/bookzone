@@ -260,26 +260,18 @@ function idSearch(e) {
 function idCheck(idField) {
     var testID = idField.value;
     for (var product in products) {
+        product = products[product];
         if (product.id == testID) { //match found
-            document.getElementById("id-match").classList.remove("hidden");
-            console.log("match found!");
-            updateAuthor.value = product.author;
-            updateTitle.value = product.title;
-            updateCategory.value = product.category;
-            updateDescription.value = product.description;
-            updateQuantity.value = product.quantity;
-            updatePrice.value = product.price;
-            return true;
+            showError(idField);
+            return false;
         }
     }
-    document.getElementById("id-match").classList.add("hidden");
-    showError(updateID);
-    console.log("no matches");
-    return false;
+    hideError(idField);
+    return true;
 }
 
 function validateID(idField) {
-    return (/(^\d{4}$)/.test(idField.value) && !idCheck(idField.value)); //check if ID is already taken
+    return (/(^\d{4}$)/.test(idField.value) && idCheck(idField)); //check if ID is already taken
 }
 
 function flagID(idField) {
