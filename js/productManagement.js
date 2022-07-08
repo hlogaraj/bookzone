@@ -1,25 +1,25 @@
-const submitNew = document.getElementById("submit-new-product-button");
-const submitUpdate = document.getElementById("submit-update-product-button");
-const searchID = document.getElementById("id-search-button");
+var submitNew = document.getElementById("submit-new-product-button");
+var submitUpdate = document.getElementById("submit-update-product-button");
+var searchID = document.getElementById("id-search-button");
 
 
-const newID = document.getElementById("new-id");
-const newTitle = document.getElementById("new-title");
-const newAuthor = document.getElementById("new-author");
-const newDescription = document.getElementById("new-description");
-const newCategory = document.getElementById("new-category");
-const newQuantity = document.getElementById("new-quantity");
-const newPrice = document.getElementById("new-price");
+var newID = document.getElementById("new-id");
+var newTitle = document.getElementById("new-title");
+var newAuthor = document.getElementById("new-author");
+var newDescription = document.getElementById("new-description");
+var newCategory = document.getElementById("new-category");
+var newQuantity = document.getElementById("new-quantity");
+var newPrice = document.getElementById("new-price");
 
-const updateID = document.getElementById("update-id");
-const updateTitle = document.getElementById("update-title");
-const updateAuthor = document.getElementById("update-author");
-const updateDescription = document.getElementById("update-description");
-const updateCategory = document.getElementById("update-category");
-const updateQuantity = document.getElementById("update-quantity");
-const updatePrice = document.getElementById("update-price");
+var updateID = document.getElementById("update-id");
+var updateTitle = document.getElementById("update-title");
+var updateAuthor = document.getElementById("update-author");
+var updateDescription = document.getElementById("update-description");
+var updateCategory = document.getElementById("update-category");
+var updateQuantity = document.getElementById("update-quantity");
+var updatePrice = document.getElementById("update-price");
 
-const fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuantity, newPrice, updateID, updateTitle, updateAuthor, updateDescription, updateQuantity, updatePrice];
+var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuantity, newPrice, updateID, updateTitle, updateAuthor, updateDescription, updateQuantity, updatePrice];
 
 var productInfo = new Object();
 
@@ -239,15 +239,16 @@ function flagTitle(titleField) {
 function idSearch(e) {
     var testID = updateID.value;
     for (let product in products) {
+        product = products[product];
         if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
             console.log("match found!");
-            updateAuthor = product.author;
-            updateTitle = product.title;
-            updateCategory = product.category;
-            updateDescription = product.description;
-            updateQuantity = product.quantity;
-            updatePrice = product.price;
+            updateAuthor.value = product.author;
+            updateTitle.value = product.title;
+            updateCategory.value = product.category;
+            updateDescription.value = product.description;
+            updateQuantity.value = product.quantity;
+            updatePrice.value = product.price;
             return true;
         }
     }
@@ -263,12 +264,12 @@ function idCheck(idField) {
         if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
             console.log("match found!");
-            updateAuthor = product.author;
-            updateTitle = product.title;
-            updateCategory = product.category;
-            updateDescription = product.description;
-            updateQuantity = product.quantity;
-            updatePrice = product.price;
+            updateAuthor.value = product.author;
+            updateTitle.value = product.title;
+            updateCategory.value = product.category;
+            updateDescription.value = product.description;
+            updateQuantity.value = product.quantity;
+            updatePrice.value = product.price;
             return true;
         }
     }
