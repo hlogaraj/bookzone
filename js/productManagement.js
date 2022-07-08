@@ -257,7 +257,7 @@ function idSearch() {
     return false;
 }
 
-function searchID(idField) {
+function idSearch(idField) {
     let testID = idField.value;
     for (var product in products) {
         if (product.id == testID) { //match found
@@ -279,7 +279,7 @@ function searchID(idField) {
 }
 
 function validateID(idField) {
-    return (/(^\d{4}$)/.test(idField.value) && !searchID(idField)); //check if ID is already taken
+    return (/(^\d{4}$)/.test(idField.value) && !idSearch(idField)); //check if ID is already taken
 }
 
 function flagID(idField) {
