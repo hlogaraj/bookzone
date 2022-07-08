@@ -238,8 +238,8 @@ function flagTitle(titleField) {
 
 function idSearch(e) {
     var testID = updateID.value;
-    for (var i = 0; i < products.length; i++) {
-        if (products[i].id == testID) { //match found
+    for (let product in products) {
+        if (product[id] == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
             console.log("match found!");
             updateAuthor = product.author;
@@ -279,7 +279,7 @@ function idCheck(idField) {
 }
 
 function validateID(idField) {
-    return (/(^\d{4}$)/.test(idField.value) && !idCheck(idField)); //check if ID is already taken
+    return (/(^\d{4}$)/.test(idField.value) && !idCheck(idField.value)); //check if ID is already taken
 }
 
 function flagID(idField) {
