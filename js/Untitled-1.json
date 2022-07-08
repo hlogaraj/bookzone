@@ -1,0 +1,65 @@
+{
+    "products": {
+        "coverStory": {
+            "id": "0001",
+            "title": "Cover Story",
+            "author": "Susan Rigetti",
+            "category": "trending",
+            "description": "After a rough year at NYU, aspiring writer Lora Ricci is thrilled to land a summer internship atELLE magazine where she meets Cat Wolff, contributing editor and enigmatic daughter of a clean-energy mogul. Cat takes Lora under her wing, soliciting her help with side projects and encouraging her writing.\n\n
+            As a friendship emerges between the two women, Lora opens up to Cat about her financial struggles and lost scholarship. Cat's solution: Drop out of NYU and become her ghostwriter. Lora agrees and, when the internship ends, she moves into Cat's suite at the opulent Plaza Hotel. Writing during the day and accompanying Cat to extravagant parties at night, Lora's life quickly shifts from looming nightmare to dream-come-true. But as Lora is drawn into Cat's glamorous lifestyle, Cat's perfect exterior cracks, exposing an illicit, shady world.\n\n
+            A whip-smart and delightfully inventive writer, Susan Rigetti brilliantly pieces together a perceptive, humorous caper full of sharp observations about scam culture. Composed of diary entries, emails, FBI correspondence, and more, Cover Story is a fresh, fun, and wholly original novel that takes readers deep into the codependency and deceit found in a relationship built on power imbalance and lies.",
+            "quantity": "1",
+            "price": "$13.49"
+        },
+        "helloSummer": {
+            "id": "0002",
+            "title": "Hello Summer",
+            "author": "Mary Kay Andrews",
+            "category": "Trending",
+            "description": "It's a new season...\n\n
+            Conley Hawkins left her family's small town newspaper, The Silver Bay Beacon, in the rearview mirror years ago. Now a star reporter for a big-city paper, Conley is exactly where she wants to be and is about to take a fancy new position in Washington, D.C. Or so she thinks.\n\n
+            For small town scandals...\n\n
+            When the new job goes up in smoke, Conley finds herself right back where she started, working for her sister, who is trying to keep The Silver Bay Beacon afloat—and she doesn't exactly have warm feelings for Conley. Soon she is given the unenviable task of overseeing the local gossip column, “Hello, Summer.”\n\n
+            And big-time secrets.\n\n
+            Then Conley witnesses an accident that ends in the death of a local congressman—a beloved war hero with a shady past. The more she digs into the story, the more dangerous it gets. As an old heartbreaker causes trouble and a new flame ignites, it soon looks like their sleepy beach town is the most scandalous hotspot of the summer.",
+            "quantity": "1",
+            "price": "$8.49"
+        },
+        "": {
+            "id": "",
+            "title": "",
+            "author": "",
+            "category": "",
+            "description": "",
+            "quantity": "",
+            "price": ""
+        },
+        "": {
+            "id": "",
+            "title": "",
+            "author": "",
+            "category": "",
+            "description": "",
+            "quantity": "",
+            "price": ""
+        },
+        "": {
+            "id": "",
+            "title": "",
+            "author": "",
+            "category": "",
+            "description": "",
+            "quantity": "",
+            "price": ""
+        },
+        "": {
+            "id": "",
+            "title": "",
+            "author": "",
+            "category": "",
+            "description": "",
+            "quantity": "",
+            "price": ""
+        },
+    }
+}
