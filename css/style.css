@@ -116,6 +116,7 @@ a:hover, a:hover h1{
 }
 .signup-form, .new-product-form, .update-product-form {
 	position: relative;
+	padding: 2em;
 	background: rgba(0, 85, 255,.07);
 	border-radius: 10px;
 }
