@@ -32,7 +32,7 @@ if (window.XMLHttpRequest) {
     request = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-request.open('GET', 'products.json');
+request.open('GET', 'js/products.json');
 request.onreadystatechange = function() {
     if ((request.status ===200) && (request.readyState===4)) {
         console.log(request.responseText);
