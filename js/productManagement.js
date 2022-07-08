@@ -46,7 +46,7 @@ for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
 
-searchID.addEventListener("click", idSearch());
+searchID.addEventListener("click", idSearch(e));
 submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
 
@@ -236,8 +236,8 @@ function flagTitle(titleField) {
     }
 }
 
-function idSearch() {
-    let testID = updateID.value;
+function idSearch(e) {
+    var testID = updateID.value;
 
     for (var product in products) {
         if (product.id == testID) { //match found
@@ -258,13 +258,8 @@ function idSearch() {
     return false;
 }
 
-function idSearch(idField) {
-    var testID;
-    if (idField) {
-        testID = idField.value;
-    } else {
-        testID = updateID.value;
-    }
+function idCheck(idField) {
+    var testID = idField.value;
     for (var product in products) {
         if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
@@ -285,7 +280,7 @@ function idSearch(idField) {
 }
 
 function validateID(idField) {
-    return (/(^\d{4}$)/.test(idField.value) && !idSearch(idField)); //check if ID is already taken
+    return (/(^\d{4}$)/.test(idField.value) && !idCheck(idField)); //check if ID is already taken
 }
 
 function flagID(idField) {
