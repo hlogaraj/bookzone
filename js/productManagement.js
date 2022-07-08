@@ -239,7 +239,7 @@ function flagTitle(titleField) {
 function idSearch(e) {
     var testID = updateID.value;
     for (let product in products) {
-        if (product[id] == testID) { //match found
+        if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
             console.log("match found!");
             updateAuthor = product.author;
