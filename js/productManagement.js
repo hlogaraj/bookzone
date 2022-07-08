@@ -36,6 +36,7 @@ request.open('GET', 'js/products.json');
 request.onreadystatechange = function() {
     if ((request.status ===200) && (request.readyState===4)) {
         products = JSON.parse(request.responseText);
+        console.log(products);
     }
 }
 request.send();
