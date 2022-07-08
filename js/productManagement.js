@@ -33,16 +33,16 @@ if (window.XMLHttpRequest) {
 }
 
 request.open('GET', 'js/products.json');
-request.onreadystatechange = function() {
-    if ((request.status ===200) && (request.readyState===4)) {
+request.onreadystatechange = function () {
+    if ((request.status === 200) && (request.readyState === 4)) {
         products = JSON.parse(request.responseText);
         console.log(products);
     }
 }
 request.send();
 
-for (let i = 0; i < fields.length; i++){
-    fields[i].addEventListener("click", function(e) { hideError(fields[i]) });
+for (let i = 0; i < fields.length; i++) {
+    fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
 
 searchID.addEventListener("click", idSearch);
@@ -235,9 +235,30 @@ function flagTitle(titleField) {
     }
 }
 
-function idSearch(e) {
-    testID = updateID.value;
+function idSearch() {
+    let testID = updateID.value;
 
+    for (var product in products) {
+        if (product.id == testID) { //match found
+            document.getElementById("id-match").classList.remove("hidden");
+            console.log("match found!");
+            updateAuthor = product.author;
+            updateTitle = product.title;
+            updateCategory = product.category;
+            updateDescription = product.description;
+            updateQuantity = product.quantity;
+            updatePrice = product.price;
+            return true;
+        }
+    }
+    document.getElementById("id-match").classList.add("hidden");
+    showError(updateID);
+    console.log("no matches");
+    return false;
+}
+
+function searchID(idField) {
+    let testID = idField.value;
     for (var product in products) {
         if (product.id == testID) { //match found
             document.getElementById("id-match").classList.remove("hidden");
