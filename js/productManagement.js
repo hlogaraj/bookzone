@@ -66,8 +66,7 @@ function newToJSON() { //takes care of storing values of the input fields into a
         "quantity": quantity,
         "price": price
     }
-    let product = { title: productInfo };
-    products.push(product);
+    products[title] = productInfo;
     localStorage.setItem('products', products);
     console.log("New Product Saved");
     console.log(products);
@@ -95,6 +94,7 @@ function updateToJSON() {
     localStorage.setItem('products', products);
     console.log("Product Updated");
     console.log(products[title]);
+    console.log(products);
 }
 
 function validateNew(e) {
