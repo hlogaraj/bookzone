@@ -32,7 +32,7 @@ if (window.XMLHttpRequest) {
     request = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-request.open('GET', 'https://github.com/hlogaraj/bookzone/blob/fa16c62ea1c91b36c92495d1b5fd9be4ca829cd9/js/products.json');
+request.open('GET', 'js/products.json');
 request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         json = JSON.parse(request.responseText);
