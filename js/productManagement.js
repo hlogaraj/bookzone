@@ -24,8 +24,6 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
-var fs = require('fs');
-
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
@@ -37,6 +35,7 @@ request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         json = JSON.parse(request.responseText);
         products = json[0];
+        localStorage.setItem('products', products);
         console.log(products);
     }
 }
@@ -69,14 +68,10 @@ function newToJSON() { //takes care of storing values of the input fields into a
     }
     let product = { title: productInfo };
     products.push(product);
-    products = JSON.stringify(products, null, 2);
+    localStorage.setItem('products', products);
+    console.log("New Product Saved");
+    console.log(products);
 
-    let fs = require('fs');
-    fs.writeFile('js/products.json', products, function (err) {
-        if (err) throw err;
-        console.log("New Product Saved");
-        console.log(product);
-    });
 }
 
 function updateToJSON() {
@@ -97,13 +92,9 @@ function updateToJSON() {
         "price": price
     }
     products[title] = productInfo;
-    products = JSON.stringify(products, null, 2);
-
-    fs.writeFile('js/products.json', products, function (err) {
-        if (err) throw err;
-        console.log("Product updated");
-        console.log(product);
-    });
+    localStorage.setItem('products', products);
+    console.log("Product Updated");
+    console.log(products[title]);
 }
 
 function validateNew(e) {
