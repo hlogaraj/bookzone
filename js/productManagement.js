@@ -24,6 +24,8 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
+var fs = require('fs');
+
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
@@ -96,7 +98,7 @@ function updateToJSON() {
     }
     products[title] = productInfo;
     products = JSON.stringify(products, null, 2);
-    let fs = require('fs');
+
     fs.writeFile('js/products.json', products, function (err) {
         if (err) throw err;
         console.log("Product updated");
