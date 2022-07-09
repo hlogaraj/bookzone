@@ -24,7 +24,6 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
-
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
