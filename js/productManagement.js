@@ -24,6 +24,7 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
+localStorage.removeItem('products');
 if (localStorage.getItem('products') != null) {
     products = localStorage.getItem('products');
     console.log("Products found locally");
