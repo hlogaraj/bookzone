@@ -26,6 +26,8 @@ var products;
 
 if (localStorage.getItem('products') != null) {
     products = localStorage.getItem('products');
+    console.log("Products found locally");
+    console.log(products);
 } else {
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
@@ -39,6 +41,7 @@ if (localStorage.getItem('products') != null) {
             json = JSON.parse(request.responseText);
             products = json[0];
             localStorage.setItem('products', products);
+            console.log("Products loaded externally");
             console.log(products);
         }
     }
