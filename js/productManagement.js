@@ -24,22 +24,26 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
-if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
+if (localStorage.getItem('products') != null) {
+    products = localStorage.getItem('products');
 } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
-request.open('GET', 'js/products.json');
-request.onreadystatechange = function () {
-    if ((request.status === 200) && (request.readyState === 4)) {
-        json = JSON.parse(request.responseText);
-        products = json[0];
-        localStorage.setItem('products', products);
-        console.log(products);
+    if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest();
+    } else {
+        request = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    
+    request.open('GET', 'js/products.json');
+    request.onreadystatechange = function () {
+        if ((request.status === 200) && (request.readyState === 4)) {
+            json = JSON.parse(request.responseText);
+            products = json[0];
+            localStorage.setItem('products', products);
+            console.log(products);
+        }
+    }
+    request.send();
 }
-request.send();
 
 for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
