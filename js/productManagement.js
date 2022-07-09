@@ -21,8 +21,6 @@ var updatePrice = document.getElementById("update-price");
 
 var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuantity, newPrice, updateID, updateTitle, updateAuthor, updateDescription, updateQuantity, updatePrice];
 
-var productInfo = new Object();
-
 var request;
 var products;
 
@@ -58,7 +56,7 @@ function newToJSON() { //takes care of storing values of the input fields into a
     var category = newCategory.value;
     var quantity = newQuantity.value;
     var price = newPrice.value;
-    productInfo = {
+    let productInfo = {
         "id": id,
         "title": title,
         "author": author,
@@ -67,15 +65,16 @@ function newToJSON() { //takes care of storing values of the input fields into a
         "quantity": quantity,
         "price": price
     }
-    products.push(productInfo);
-    products = JSON.stringify(productInfo, null, 2);
-    fs.writeFile('js/products.json', productInfo, (err) => {
-        if (err) {
-            throw err;
-        }
+    let product = { title: productInfo };
+    products.push(product);
+    products = JSON.stringify(products, null, 2);
+
+    let fs = require('fs');
+    fs.writeFile('js/products.json', products, function (err) {
+        if (err) throw err;
         console.log("New Product Saved");
-        console.log(productInfo);
-    })
+        console.log(product);
+    });
 }
 
 function updateToJSON() {
@@ -86,7 +85,7 @@ function updateToJSON() {
     var category = updateCategory.value;
     var quantity = updateQuantity.value;
     var price = updatePrice.value;
-    productInfo = {
+    let productInfo = {
         "id": id,
         "title": title,
         "author": author,
@@ -95,15 +94,14 @@ function updateToJSON() {
         "quantity": quantity,
         "price": price
     }
-    products[id] = productInfo;
+    products[title] = productInfo;
     products = JSON.stringify(products, null, 2);
-    fs.writeFile("products.json", productInfo, (err) => {
-        if (err) {
-            throw err;
-        }
-        console.log("Product Updates Saved");
-        console.log(productInfo);
-    })
+    let fs = require('fs');
+    fs.writeFile('js/products.json', products, function (err) {
+        if (err) throw err;
+        console.log("Product updated");
+        console.log(product);
+    });
 }
 
 function validateNew(e) {
