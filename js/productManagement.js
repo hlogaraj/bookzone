@@ -24,30 +24,24 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
-localStorage.removeItem('products');
-if (localStorage.getItem('products') != null) {
-    products = localStorage.getItem('products');
-    console.log("Products found locally");
-    console.log(products);
+
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
 } else {
-    if (window.XMLHttpRequest) {
-        request = new XMLHttpRequest();
-    } else {
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    request.open('GET', 'js/products.json');
-    request.onreadystatechange = function () {
-        if ((request.status === 200) && (request.readyState === 4)) {
-            json = JSON.parse(request.responseText);
-            products = json[0];
-            localStorage.setItem('products', products);
-            console.log("Products loaded externally");
-            console.log(products);
-        }
-    }
-    request.send();
+    request = new ActiveXObject("Microsoft.XMLHTTP");
 }
+
+request.open('GET', 'js/products.json');
+request.onreadystatechange = function () {
+    if ((request.status === 200) && (request.readyState === 4)) {
+        json = JSON.parse(request.responseText);
+        products = json[0];
+        localStorage.setItem('products', products);
+        console.log("Products loaded externally");
+        console.log(products);
+    }
+}
+request.send();
 
 for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
