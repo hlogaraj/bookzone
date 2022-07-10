@@ -24,6 +24,8 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
+var cartItems = [];
+
 var productListings = document.getElementsByClassName("product-listing");
 for (let listing in productListing) {
     listing.addEventListener("click"), function (e) { addToCart(listing)};
@@ -56,7 +58,10 @@ submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
 
 function addToCart(listing) {
-    
+    let name = listing.id;
+    cartItems.push(products[name]);
+    localStorage.setItem("cart items", cartItems);
+    console.log(cartItems);
 }
 
 function newToJSON() { //takes care of storing values of the input fields into a JSON object passed as an argument
