@@ -27,7 +27,7 @@ var products;
 var cartItems = [];
 
 var productListings = document.getElementsByClassName("product-listing");
-for (let listing in productListing) {
+for (let listing in productListings) {
     listing.addEventListener("click"), function (e) { addToCart(listing)};
 }
 
