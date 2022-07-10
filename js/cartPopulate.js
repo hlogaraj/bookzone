@@ -32,7 +32,7 @@ if (cartItems != null) {
         totalPrice += qtyPrice;
     }
     totalPrice = Number((totalPrice).toFixed(2));
-
+    
     let row = document.createElement("tr");
     row.classList.add("total-row");
     let totalData = document.createElement("td");
