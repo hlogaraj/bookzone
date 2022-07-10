@@ -43,6 +43,7 @@ if (cartItems != null) {
     let totalData = document.createElement("td");
     totalData.colSpan = "2";
     totalData.innerHTML = "$" + totalPrice;
+    table.appendChild(row);
 }
 
 
