@@ -42,6 +42,7 @@ function addToCart(listing) {
     }
 
     if (!existing) { //creating new slot in cart items
+        let productInfo = products[name];
         let item = {
             name: name,
             info: productInfo,
