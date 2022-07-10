@@ -3,6 +3,10 @@ var products;
 
 var cartItems = [];
 
+if (localStorage.getItem("cart items") != null) {
+    cartItems = localStorage.getItem("cart items");
+}
+
 var productListings = document.getElementsByClassName("product-listing");
 for (let i = 0; i < productListings.length; i++) {
     productListings[i].addEventListener("click", function (e) { addToCart(productListings[i]) });
@@ -28,7 +32,9 @@ request.send();
 
 function addToCart(listing) {
     let name = listing.id;
-    cartItems.push(products[name]);
+    let productInfo = products[name]
+    let product = {name: productInfo}
+    cartItems.push(product);
     localStorage.setItem("cart items", cartItems);
     console.log(cartItems);
 }
