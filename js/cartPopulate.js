@@ -25,13 +25,10 @@ if (cartItems != null) {
         quantityData.innerHTML = quantity;
         let priceData = document.createElement("td");
         priceData.innerHTML = "$" + qtyPrice;
-
         row.appendChild(nameData);
         row.appendChild(quantityData);
         row.appendChild(priceData);
-
         table.appendChild(row);
-
         totalPrice += qtyPrice;
     }
     let row = document.createElement("tr");
