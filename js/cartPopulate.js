@@ -16,7 +16,7 @@ if (cartItems != null) {
         let quantity = parseInt(item.quantity);
         let price = parseFloat(item.price);
         let qtyPrice = quantity * price;
-        qtyPrice = Number((qtyPrice).toFixed(2))
+        qtyPrice = (Math.round(qtyPrice * 100) / 100).toFixed(2);
 
         let row = document.createElement("tr");
         row.id = name;
@@ -32,7 +32,7 @@ if (cartItems != null) {
         table.appendChild(row);
         totalPrice += qtyPrice;
     }
-    totalPrice = Number((totalPrice).toFixed(2));
+    totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);
     
     let row = document.createElement("tr");
     row.classList.add("total-row");
