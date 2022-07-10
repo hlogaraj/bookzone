@@ -38,6 +38,7 @@ if (cartItems != null) {
     let totalData = document.createElement("td");
     totalData.classList.add("total-data");
     totalData.innerHTML = "Total Price: $" + totalPrice;
+    totalData.colSpan = "3";
     row.appendChild(totalData);
     table.appendChild(row);
 }
