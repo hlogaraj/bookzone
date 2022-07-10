@@ -16,6 +16,7 @@ if (cartItems != null) {
         let quantity = parseInt(item.quantity);
         let price = parseFloat(item.price);
         let qtyPrice = quantity * price;
+        qtyPrice = Number((qtyPrice).toFixed(2))
 
         let row = document.createElement("tr");
         row.id = name;
