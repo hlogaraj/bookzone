@@ -42,7 +42,7 @@ request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         json = JSON.parse(request.responseText);
         products = json[0];
-        localStorage.setItem('products', products);
+        localStorage.setItem('products', JSON.stringify(products));
         console.log("Products loaded externally");
         console.log(products);
     }
@@ -60,7 +60,7 @@ submitUpdate.addEventListener("click", validateUpdate);
 function addToCart(listing) {
     let name = listing.id;
     cartItems.push(products[name]);
-    localStorage.setItem("cart items", cartItems);
+    localStorage.setItem("cart items", JSON.stringify(cartItems));
     console.log(cartItems);
 }
 
@@ -82,7 +82,7 @@ function newToJSON() { //takes care of storing values of the input fields into a
         "price": price
     }
     products[title] = productInfo;
-    localStorage.setItem('products', products);
+    localStorage.setItem('products', JSON.stringify(products));
     console.log("New Product Saved");
     console.log(products);
 
@@ -106,7 +106,7 @@ function updateToJSON() {
         "price": price
     }
     products[title] = productInfo;
-    localStorage.setItem('products', products);
+    localStorage.setItem('products', JSON.stringify(products));
     console.log("Product Updated");
     console.log(products[title]);
     console.log(products);

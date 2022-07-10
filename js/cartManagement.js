@@ -3,8 +3,8 @@ var products;
 
 var cartItems = new Array();
 
-if (Array.isArray(localStorage.getItem("cart items"))) {
-    cartItems = localStorage.getItem("cart items");
+if (localStorage.getItem("cart items") != null) {
+    cartItems = JSON.parse(localStorage.getItem("cart items"));
     console.log("cart items found");
     console.log(cartItems);
 }
@@ -25,7 +25,7 @@ request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         json = JSON.parse(request.responseText);
         products = json[0];
-        localStorage.setItem('products', products);
+        localStorage.setItem('products', JSON.stringify(products));
         console.log("Products loaded externally");
         console.log(products);
     }
@@ -54,7 +54,7 @@ function addToCart(listing) {
         }
         cartItems.push(item);
     }
-    localStorage.setItem("cart items", cartItems);
+    localStorage.setItem("cart items", JSON.stringify(cartItems));
     console.log(cartItems);
 }
 

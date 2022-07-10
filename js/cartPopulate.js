@@ -1,6 +1,6 @@
-var cartItems = localStorage.getItem("cart items");
+var cartItems = JSON.parse(localStorage.getItem("cart items"));
 
-var products = localStorage.getItem("products");
+var products = JSON.parse(localStorage.getItem("products"));
 
 if (products != null) {
     console.log("product catalog loaded locally");
