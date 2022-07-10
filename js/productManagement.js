@@ -24,6 +24,11 @@ var fields = [newID, newTitle, newAuthor, newDescription, newCategory, newQuanti
 var request;
 var products;
 
+var productListings = document.getElementsByClassName("product-listing");
+for (let listing in productListing) {
+    listing.addEventListener("click"), function (e) { addToCart(listing)};
+}
+
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
@@ -49,6 +54,10 @@ for (let i = 0; i < fields.length; i++) {
 searchID.addEventListener("click", idSearch);
 submitNew.addEventListener("click", validateNew);
 submitUpdate.addEventListener("click", validateUpdate);
+
+function addToCart(listing) {
+    
+}
 
 function newToJSON() { //takes care of storing values of the input fields into a JSON object passed as an argument
     var id = newID.value;
