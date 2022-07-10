@@ -154,3 +154,24 @@ table {
   tr:nth-child(even) {
 	background-color: #dddddd;
   }
+
+  .product-listing {
+	position: relative;
+  }
+
+  .product-listing:hover .add-to-cart {
+	display: block;
+  }
+
+  .add-to-cart {
+	padding: 1em;
+	color: white;
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 85, 255, .7);
+  }
