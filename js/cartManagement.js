@@ -1,9 +1,9 @@
 var request;
 var products;
 
-var cartItems = [];
+var cartItems = new Array();
 
-if (localStorage.getItem("cart items") != null) {
+if (Array.isArray(localStorage.getItem("cart items"))) {
     cartItems = localStorage.getItem("cart items");
 }
 
