@@ -13,7 +13,6 @@ if (localStorage.getItem("cart items") != null) {
         console.log(err);
     }
 }
-
 var productListings = document.getElementsByClassName("product-listing");
 for (let i = 0; i < productListings.length; i++) {
     productListings[i].addEventListener("click", function (e) { addToCart(productListings[i]) });
