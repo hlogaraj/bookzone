@@ -42,7 +42,6 @@ function addToCart(listing) {
     }
     cartInfo = [quantity, productInfo];
     cartItems[name] = cartInfo;
-    
     localStorage.setItem("cart items", cartItems);
     console.log(cartItems);
 }
