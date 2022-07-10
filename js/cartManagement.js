@@ -43,10 +43,12 @@ function addToCart(listing) {
 
     if (!existing) { //creating new slot in cart items
         let productInfo = products[name];
+        let itemPrice = productInfo.price;
         let item = {
             name: name,
-            info: productInfo,
-            quantity: 1
+            quantity: 1,
+            price: itemPrice,
+            info: productInfo
         }
         cartItems.push(item);
     }

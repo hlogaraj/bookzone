@@ -11,8 +11,8 @@ if (cartItems != null) {
     for (let i = 0; i < cartItems.length; i++) {
         let item = cartItems[i];
         let name = String(item.name);
-        let quantity = item.quantity;
-        let price = item.info.price;
+        let quantity = parseInt(item.quantity);
+        let price = parseFloat(item.price);
         let qtyPrice = quantity * price;
 
         let table = document.getElementById("cart-items");
