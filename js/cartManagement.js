@@ -32,16 +32,23 @@ request.send();
 
 function addToCart(listing) {
     let name = listing.id;
-    let productInfo = products[name]
-    let cartInfo = []
-    let quantity;
-    if (cartItems[name] != null) {
-        quantity = 1;
-    } else {
-        quantity++; 
+    let existing = false;
+    for (let i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].name == name) { //adding to existing quantity
+            newQuantity = cartItems[i].quantity + 1;
+            cartItems[i].quantity = newQuantity;
+            existing = true;
+        }
     }
-    cartInfo = [quantity, productInfo];
-    cartItems[name] = cartInfo;
+
+    if (!existing) { //creating new slot in cart items
+        let item = {
+            name: name,
+            info: productInfo,
+            quantity: 1
+        }
+        cartItems.push(item);
+    }
     localStorage.setItem("cart items", cartItems);
     console.log(cartItems);
 }
