@@ -4,9 +4,14 @@ var products;
 var cartItems = new Array();
 
 if (localStorage.getItem("cart items") != null) {
-    cartItems = JSON.parse(localStorage.getItem("cart items"));
-    console.log("cart items found");
-    console.log(cartItems);
+    try {
+        cartItems = JSON.parse(localStorage.getItem("cart items"));
+        console.log("cart items found");
+        console.log(cartItems);
+    }
+    catch(err) {
+        console.log(err);
+    }
 }
 
 var productListings = document.getElementsByClassName("product-listing");
