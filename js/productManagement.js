@@ -28,7 +28,7 @@ var cartItems = [];
 
 var productListings = document.getElementsByClassName("product-listing");
 for (let i = 0; i < productListings.length; i++) {
-    productListings[i].addEventListener("click"), function (e) { addToCart(productListings[i]) };
+    productListings[i].addEventListener("click", function (e) { addToCart(productListings[i]) });
 }
 
 if (window.XMLHttpRequest) {
