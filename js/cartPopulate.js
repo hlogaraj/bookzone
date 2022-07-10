@@ -40,6 +40,8 @@ if (cartItems != null) {
     let totalData = document.createElement("td");
     totalData.colSpan = "2";
     totalData.innerHTML = "$" + totalPrice;
+    row.appendChild(totalLabel);
+    row.appendChild(totalData);
     table.appendChild(row);
 }
 
