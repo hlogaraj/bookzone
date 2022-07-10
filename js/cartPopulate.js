@@ -31,16 +31,13 @@ if (cartItems != null) {
         table.appendChild(row);
         totalPrice += qtyPrice;
     }
+    totalPrice = Number((totalPrice).toFixed(2));
+
     let row = document.createElement("tr");
     row.classList.add("total-row");
-    let totalLabel = document.createElement("td");
-    totalLabel.classList.add("total-label");
-    totalLabel.innerHTML = "Total Price:";
     let totalData = document.createElement("td");
-    totalData.colSpan = "2";
-    totalPrice = Number((totalPrice).toFixed(2));
-    totalData.innerHTML = "$" + totalPrice;
-    row.appendChild(totalLabel);
+    totalData.classList.add("total-data");
+    totalData.innerHTML = "Total Price: $" + totalPrice;
     row.appendChild(totalData);
     table.appendChild(row);
 }

@@ -176,10 +176,7 @@ table {
 	background: rgba(0, 85, 255, .7);
   }
 
-  .total-row {
+  .total-data {
 	font-weight: bolder;
-  }
-
-  .total-label {
-	text-align: right;
+	column-span: all;
   }
