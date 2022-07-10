@@ -178,5 +178,5 @@ table {
 
   .total-data {
 	font-weight: bolder;
-	column-span: all;
+	column-span: 3;
   }
