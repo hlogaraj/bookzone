@@ -5,6 +5,8 @@ var cartItems = new Array();
 
 if (Array.isArray(localStorage.getItem("cart items"))) {
     cartItems = localStorage.getItem("cart items");
+    console.log("cart items found");
+    console.log(cartItems);
 }
 
 var productListings = document.getElementsByClassName("product-listing");
