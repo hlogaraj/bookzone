@@ -34,7 +34,7 @@ if (cartItems != null) {
     let row = document.createElement("tr");
     row.classList.add("total-row");
     let totalLabel = document.createElement("td");
-    totalLabel.id = "total-label";
+    totalLabel.classList.add("total-label");
     totalLabel.innerHTML = "Total Price:";
     let totalData = document.createElement("td");
     totalData.colSpan = "2";
