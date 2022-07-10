@@ -175,3 +175,7 @@ table {
 	transform: translate(-50%, -50%);
 	background: rgba(0, 85, 255, .7);
   }
+
+  .total-row {
+	font-weight: bolder;
+  }

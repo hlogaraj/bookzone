@@ -32,11 +32,10 @@ if (cartItems != null) {
         totalPrice += qtyPrice;
     }
     let row = document.createElement("tr");
-    row.id = "total";
-    let totalLabel = document.createElement("h3");
+    row.classList.add("total-row");
+    let totalLabel = document.createElement("td");
+    totalLabel.id = "total-label";
     totalLabel.innerHTML = "Total Price:";
-    let totalLabelBox = document.createElement("td");
-    totalLabelBox.appendChild(totalLabel);
     let totalData = document.createElement("td");
     totalData.colSpan = "2";
     totalData.innerHTML = "$" + totalPrice;
