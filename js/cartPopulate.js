@@ -30,7 +30,7 @@ if (cartItems != null) {
         row.appendChild(quantityData);
         row.appendChild(priceData);
         table.appendChild(row);
-        totalPrice += qtyPrice;
+        totalPrice = parseFloat(totalPrice) + parseFloat(qtyPrice);
     }
     totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);
     
