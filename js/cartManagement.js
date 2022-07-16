@@ -35,7 +35,6 @@ request.onreadystatechange = function () {
         console.log(products);
     }
 }
-
 request.send();
 
 function addToCart(listing) {
