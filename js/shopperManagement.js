@@ -12,7 +12,7 @@ var textConsent = document.getElementById("texts");
 
 var request;
 var shopperInfo = new Object();
-var shoppers;
+var shoppers = new Object();
 
 if (window.XMLHttpRequest) {
 	request = new XMLHttpRequest();
