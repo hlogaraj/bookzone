@@ -28,7 +28,7 @@ if (window.XMLHttpRequest) {
 request.open('GET', 'js/products.json');
 request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
-        json = JSON.parse(request.responseText);
+        let json = JSON.parse(request.responseText);
         products = json[0];
         localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
         console.log("Products loaded externally");
