@@ -1,21 +1,37 @@
-const signup = document.forms["signup-form"];
+var signup = document.forms["signup-form"];
 
-const submitUser = signup.getElementsByClassName("submit-button")[0];
+var submitUser = signup.getElementsByClassName("submit-button")[0];
 
-const firstNameField = document.getElementById("first-name");
-const lastNameField = document.getElementById("last-name");
-const streetAddressField = document.getElementById("street-address");
-const cityField = document.getElementById("city");
-const stateField = document.getElementById("state");
-const zipCodeField = document.getElementById("zip-code");
-const emailField = document.getElementById("email");
-const phoneNumberField = document.getElementById("phone-number");
-const textConsent = document.getElementById("texts");
+var firstNameField = document.getElementById("first-name");
+var lastNameField = document.getElementById("last-name");
+var streetAddressField = document.getElementById("street-address");
+var cityField = document.getElementById("city");
+var stateField = document.getElementById("state");
+var zipCodeField = document.getElementById("zip-code");
+var emailField = document.getElementById("email");
+var phoneNumberField = document.getElementById("phone-number");
+var textConsent = document.getElementById("texts");
 
-var shopperInfo = new Object(); //creates JSON object
+var request;
+var shoppers;
 
-const fs = require('fs');
-var shoppers = JSON.parse(fs.readFileSync('shoppers.json')); 
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+} else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+request.open('GET', 'js/shoppers.json'); //get and parse product objects from products.json
+request.onreadystatechange = function () {
+    if ((request.status === 200) && (request.readyState === 4)) {
+        let json = JSON.parse(request.responseText);
+        shoppers = json[0];
+        localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save copy of JSON string to local storage so it's handy for future access
+        console.log("Shoppers loaded externally");
+        console.log(shoppers);
+    }
+}
+request.send();
 
 
 firstNameField.addEventListener("click", function () { hideError(firstNameField); });
@@ -38,7 +54,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 	var email = emailField.value;
 	var phone = phoneNumberField.value;
 	var texts = textConsent.checked;
-	shopperInfo = {
+	let shopperInfo = {
 		"firstName": firstName,
 		"lastName": lastName,
 		"streetAddress": streetAddress,
@@ -49,7 +65,11 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		"phoneNumber": phone,
 		"textConsent": texts
 	}
-	return shopperInfo;
+
+	shoppers[email] = shopperInfo;
+	localStorage.setItem('shoppers', JSON.stringify('shoppers')); //save JSON string to local storage
+	console.log("New shopper saved");
+	console.log(shoppers);
 }
 
 function validateShopper(e) {
