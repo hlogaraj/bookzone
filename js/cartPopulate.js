@@ -9,7 +9,7 @@ if (products != null) {
 if (cartItems != null) {
     console.log("cart items found");
     let table = document.getElementById("cart-items");
-    let totalPrice = 0;
+    var totalPrice = 0;
     for (let i = 0; i < cartItems.length; i++) {
         let item = cartItems[i];
         let name = String(item.name);
