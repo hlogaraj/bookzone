@@ -42,7 +42,7 @@ function addToCart(listing) {
     let existing = false;
     for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].name == name) { //adding to existing quantity
-            newQuantity = cartItems[i].quantity + 1;
+            let newQuantity = cartItems[i].quantity + 1;
             cartItems[i].quantity = newQuantity;
             existing = true;
         }
