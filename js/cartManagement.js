@@ -1,7 +1,10 @@
+import fs from 'fs';
+
 var request;
 var products;
 
 var cartItems = new Array();
+
 
 if (localStorage.getItem("cart items") != null) {
     try {
@@ -38,8 +41,6 @@ request.onreadystatechange = function () {
 request.send();
 
 function addToCart(listing) {
-    const fs = require('fs');
-
     let name = listing.id;
     let existing = false;
     for (let i = 0; i < cartItems.length; i++) {

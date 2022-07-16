@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 var submitNew = document.getElementById("submit-new-product-button");
 var submitUpdate = document.getElementById("submit-update-product-button");
 var searchID = document.getElementById("id-search-button");
@@ -65,8 +67,6 @@ function addToCart(listing) {
 }
 
 function newToJSON() { //takes care of storing values of the input fields into a JSON object passed as an argument
-    const fs = require('fs');
-
     var id = newID.value;
     var title = newTitle.value;
     var author = newAuthor.value;
@@ -92,8 +92,6 @@ function newToJSON() { //takes care of storing values of the input fields into a
 }
 
 function updateToJSON() {
-    const fs = require('fs');
-
     var id = updateID.value;
     var title = updateTitle.value;
     var author = updateAuthor.value;
