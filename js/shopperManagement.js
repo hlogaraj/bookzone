@@ -74,6 +74,15 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 	shoppers[email] = shopperInfo;
 	localStorage.setItem('shoppers', JSON.stringify('shoppers')); //save JSON string to local storage
 	console.log("New shopper saved");
+	firstNameField.value = "";
+	lastNameField.value = "";
+	streetAddressField.value = "";
+	cityField.value = "";
+	stateField.value = "";
+	zipCodeField.value = "";
+	emailField.value = "";
+	phoneNumberField.value = "";
+	textConsent.checked = false;
 	console.log(shoppers);
 }
 
