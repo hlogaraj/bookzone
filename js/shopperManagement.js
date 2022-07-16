@@ -34,6 +34,7 @@ if (JSON.parse(localStorage.getItem('shoppers')).length == 0) {
 	request.send();
 } else {
 	shoppers = JSON.parse(localStorage.getItem('shoppers'))[0];
+	console.log("Shoppers loaded locally");
 }
 
 
