@@ -32,7 +32,7 @@ if (cartItems != null) {
         table.appendChild(row);
         totalPrice += qtyPrice;
     }
-    //totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);  *****FIXME taken out for testing
+    totalPrice = totalPrice.toFixed(2);  //*****FIXME taken out for testing: totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2)
     
     let row = document.createElement("tr");
     row.classList.add("total-row");
