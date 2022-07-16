@@ -11,7 +11,7 @@ var phoneNumberField = document.getElementById("phone-number");
 var textConsent = document.getElementById("texts");
 
 var request;
-var shopperInfo;
+var shopperInfo = new Object();
 var shoppers;
 
 if (window.XMLHttpRequest) {
