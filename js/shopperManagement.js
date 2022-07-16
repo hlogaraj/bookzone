@@ -11,6 +11,7 @@ var phoneNumberField = document.getElementById("phone-number");
 var textConsent = document.getElementById("texts");
 
 var request;
+var shopperInfo;
 var shoppers;
 
 if (window.XMLHttpRequest) {
@@ -52,7 +53,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 	var email = emailField.value;
 	var phone = phoneNumberField.value;
 	var texts = textConsent.checked;
-	let shopperInfo = {
+	shopperInfo = {
 		"firstName": firstName,
 		"lastName": lastName,
 		"streetAddress": streetAddress,
