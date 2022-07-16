@@ -9,7 +9,7 @@ if (localStorage.getItem("cart items") != null) {
         console.log("cart items found");
         console.log(cartItems);
     }
-    catch(err) {
+    catch (err) {
         console.log(err);
     }
 }
@@ -26,17 +26,19 @@ if (window.XMLHttpRequest) {
 
 request.open('GET', 'js/products.json');
 request.onreadystatechange = function () {
-    if ((request.status === 200) && (request.readyState === 4)) {
+    if ((request.status === 200) && (request.readyState === 4))
         json = JSON.parse(request.responseText);
-        products = json[0];
-        localStorage.setItem('products', JSON.stringify(products));
-        console.log("Products loaded externally");
-        console.log(products);
-    }
+    products = json[0];
+    localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
+    console.log("Products loaded externally");
+    console.log(products);
 }
+
 request.send();
 
 function addToCart(listing) {
+    const fs = require('fs');
+
     let name = listing.id;
     let existing = false;
     for (let i = 0; i < cartItems.length; i++) {
@@ -58,7 +60,8 @@ function addToCart(listing) {
         }
         cartItems.push(item);
     }
-    localStorage.setItem("cart items", JSON.stringify(cartItems));
+    localStorage.setItem("cart items", JSON.stringify(cartItems)); //save JSON string to local storage
+    fs.writeFileSync('js/cartItems.json', JSON.stringify(cartItems)); //write JSON string to file
     console.log(cartItems);
 }
 

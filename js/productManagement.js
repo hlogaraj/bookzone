@@ -37,12 +37,12 @@ if (window.XMLHttpRequest) {
     request = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-request.open('GET', 'js/products.json');
+request.open('GET', 'js/products.json'); //get and parse product objects from products.json
 request.onreadystatechange = function () {
     if ((request.status === 200) && (request.readyState === 4)) {
         json = JSON.parse(request.responseText);
         products = json[0];
-        localStorage.setItem('products', JSON.stringify(products));
+        localStorage.setItem('products', JSON.stringify(products)); //save copy of JSON string to local storage so it's handy for future access
         console.log("Products loaded externally");
         console.log(products);
     }
@@ -65,6 +65,8 @@ function addToCart(listing) {
 }
 
 function newToJSON() { //takes care of storing values of the input fields into a JSON object passed as an argument
+    const fs = require('fs');
+
     var id = newID.value;
     var title = newTitle.value;
     var author = newAuthor.value;
@@ -82,13 +84,16 @@ function newToJSON() { //takes care of storing values of the input fields into a
         "price": price
     }
     products[title] = productInfo;
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
+    fs.writeFileSync('js/products.json', JSON.stringify(products)); //write JSON string to file
     console.log("New Product Saved");
     console.log(products);
 
 }
 
 function updateToJSON() {
+    const fs = require('fs');
+
     var id = updateID.value;
     var title = updateTitle.value;
     var author = updateAuthor.value;
@@ -106,7 +111,8 @@ function updateToJSON() {
         "price": price
     }
     products[title] = productInfo;
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
+    fs.writeFileSync('js/products.json', JSON.stringify(products)); //write JSON string to file
     console.log("Product Updated");
     console.log(products[title]);
     console.log(products);
