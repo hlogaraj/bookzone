@@ -94,7 +94,7 @@ function validateShopper(e) {
 	if (!valid) {
 		e.preventDefault();
 	} else {
-		userInfo = toJSON(shopperInfo); //after inputs are confirmed valid, executes function to store values into JSON objct
+		userInfo = shopperToJSON(shopperInfo); //after inputs are confirmed valid, executes function to store values into JSON objct
 		console.log(shopperInfo); //used to check successful storage of inputs
 		return valid;
 	}
