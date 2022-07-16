@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 var request;
 var products;
 
@@ -63,7 +61,6 @@ function addToCart(listing) {
         cartItems.push(item);
     }
     localStorage.setItem("cart items", JSON.stringify(cartItems)); //save JSON string to local storage
-    fs.writeFileSync('js/cartItems.json', JSON.stringify(cartItems)); //write JSON string to file
     console.log(cartItems);
 }
 

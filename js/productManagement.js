@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 var submitNew = document.getElementById("submit-new-product-button");
 var submitUpdate = document.getElementById("submit-update-product-button");
 var searchID = document.getElementById("id-search-button");
@@ -85,7 +83,6 @@ function newToJSON() { //takes care of storing values of the input fields into a
     }
     products[title] = productInfo;
     localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
-    fs.writeFileSync('js/products.json', JSON.stringify(products)); //write JSON string to file
     console.log("New Product Saved");
     console.log(products);
 
@@ -110,7 +107,6 @@ function updateToJSON() {
     }
     products[title] = productInfo;
     localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
-    fs.writeFileSync('js/products.json', JSON.stringify(products)); //write JSON string to file
     console.log("Product Updated");
     console.log(products[title]);
     console.log(products);
