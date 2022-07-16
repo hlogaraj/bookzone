@@ -15,12 +15,15 @@ var shopperInfo = new Object();
 var shoppers;
 
 if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
+	request = new XMLHttpRequest();
 } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
+	request = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-if (JSON.parse(localStorage.getItem('shoppers')).length == 0) {
+if (localStorage.getItem('shoppers') != null) {
+	shoppers = JSON.parse(localStorage.getItem('shoppers'))[0];
+	console.log("Shoppers loaded locally");
+} else {
 	request.open('GET', 'js/shoppers.json'); //get and parse product objects from products.json
 	request.onreadystatechange = function () {
 		if ((request.status === 200) && (request.readyState === 4)) {
@@ -32,11 +35,7 @@ if (JSON.parse(localStorage.getItem('shoppers')).length == 0) {
 		}
 	}
 	request.send();
-} else {
-	shoppers = JSON.parse(localStorage.getItem('shoppers'))[0];
-	console.log("Shoppers loaded locally");
 }
-
 
 
 firstNameField.addEventListener("click", function () { hideError(firstNameField); });
@@ -71,7 +70,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		"textConsent": texts
 	}
 
-	shoppers.push({email : shopperInfo});
+	shoppers.push({ email: shopperInfo });
 	localStorage.setItem('shoppers', JSON.stringify('shoppers')); //save JSON string to local storage
 	console.log("New shopper saved");
 	firstNameField.value = "";
