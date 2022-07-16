@@ -70,7 +70,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		"textConsent": texts
 	}
 
-	shoppers.push({ email: shopperInfo });
+	shoppers[email] = shopperInfo;
 	localStorage.setItem('shoppers', JSON.stringify('shoppers')); //save JSON string to local storage
 	console.log("New shopper saved");
 	firstNameField.value = "";
