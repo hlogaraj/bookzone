@@ -1,6 +1,4 @@
-var signup = document.forms["signup-form"];
-
-var submitUser = signup.getElementsByClassName("submit-button")[0];
+var submitUser = document.getElementById("submit-shopper-button");
 
 var firstNameField = document.getElementById("first-name");
 var lastNameField = document.getElementById("last-name");
