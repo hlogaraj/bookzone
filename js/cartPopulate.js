@@ -30,10 +30,9 @@ if (cartItems != null) {
         row.appendChild(quantityData);
         row.appendChild(priceData);
         table.appendChild(row);
-        totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);
         totalPrice += qtyPrice;
     }
-    totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);
+    //totalPrice = (Math.round(totalPrice * 100) / 100).toFixed(2);  *****FIXME taken out for testing
     
     let row = document.createElement("tr");
     row.classList.add("total-row");
