@@ -21,14 +21,14 @@ if (window.XMLHttpRequest) {
 }
 
 if (localStorage.getItem('shoppers') != null) {
-	shoppers = new Array(JSON.parse(localStorage.getItem('shoppers')));
+	shoppers = Object.entries(JSON.parse(localStorage.getItem('shoppers')));
 	console.log("Shoppers loaded locally");
 } else {
 	request.open('GET', 'js/shoppers.json'); //get and parse product objects from products.json
 	request.onreadystatechange = function () {
 		if ((request.status === 200) && (request.readyState === 4)) {
 			let json = JSON.parse(request.responseText);
-			shoppers = new Array(json[0]);
+			shoppers = Object.entries(json[0]);
 			localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save copy of JSON string to local storage so it's handy for future access
 			console.log("Shoppers loaded externally");
 			console.log(shoppers);
