@@ -73,7 +73,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 
 	while (shoppers) {
 		for (let i = 0; i < shoppers.length; i++) {
-			if (shoppers[i].keys()[0] == email) { //match found
+			if (shoppers.keys()[i] == email) { //match found
 				console.log("Email already used");
 				return;
 			}
