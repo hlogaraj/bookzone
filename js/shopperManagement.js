@@ -72,28 +72,32 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 	}
 
 	for (let i = 0; i < 1; i++) {
+		var matchFound = false;
 		for (let i = 0; i < shoppers.length; i++) {
-			if (shoppers.keys()[i] == email) { //match found
+			let shopper = shoppers[i];
+			if (Object.keys(shopper)[0] == email) {
 				console.log("Email already used");
-				return;
+				matchFound = true;
 			}
 		}
-		let shopper = {};
-		shopper[email] = shopperInfo;
-		console.log(shoppers);
-		shoppers.push(shopper);
-		localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save JSON string to local storage
-		console.log("New shopper saved");
-		firstNameField.value = "";
-		lastNameField.value = "";
-		streetAddressField.value = "";
-		cityField.value = "";
-		stateField.value = "";
-		zipCodeField.value = "";
-		emailField.value = "";
-		phoneNumberField.value = "";
-		textConsent.checked = false;
-		console.log(shoppers);
+		if (!matchFound) {
+			let shopper = {};
+			shopper[email] = shopperInfo;
+			console.log(shoppers);
+			shoppers.push(shopper);
+			localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save JSON string to local storage
+			console.log("New shopper saved");
+			firstNameField.value = "";
+			lastNameField.value = "";
+			streetAddressField.value = "";
+			cityField.value = "";
+			stateField.value = "";
+			zipCodeField.value = "";
+			emailField.value = "";
+			phoneNumberField.value = "";
+			textConsent.checked = false;
+			console.log(shoppers);
+		}
 	}
 
 }
