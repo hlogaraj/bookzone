@@ -71,7 +71,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		"textConsent": texts
 	}
 
-	while (shoppers) {
+	for (let i = 0; i < 1; i++) {
 		for (let i = 0; i < shoppers.length; i++) {
 			if (shoppers.keys()[i] == email) { //match found
 				console.log("Email already used");
