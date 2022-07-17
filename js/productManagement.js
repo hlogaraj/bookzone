@@ -84,6 +84,13 @@ function newToJSON() { //takes care of storing values of the input fields into a
     products[title] = productInfo;
     localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
     console.log("New Product Saved");
+    newID.value = "";
+    newTitle.value = "";
+    newAuthor.value = "";
+    newDescription.value = "";
+    newCategory.value = "";
+    newQuantity.value = "";
+    newPrice.value = "";
     console.log(products);
 
 }
