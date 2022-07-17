@@ -37,18 +37,23 @@ if (window.XMLHttpRequest) {
     request = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-request.open('GET', 'js/products.json'); //get and parse product objects from products.json
-request.onreadystatechange = function () {
-    if ((request.status === 200) && (request.readyState === 4)) {
-        let json = JSON.parse(request.responseText);
-        products = json[0];
-        localStorage.setItem('products', JSON.stringify(products)); //save copy of JSON string to local storage so it's handy for future access
-        console.log("Products loaded externally");
-        console.log(products);
+if (localStorage.getItem('products') != null) {
+    products = JSON.parse(localStorage.getItem('products'));
+    console.log("Products loaded locally");
+    console.log(products);
+} else {
+    request.open('GET', 'js/products.json'); //get and parse product objects from products.json
+    request.onreadystatechange = function () {
+        if ((request.status === 200) && (request.readyState === 4)) {
+            let json = JSON.parse(request.responseText);
+            products = json[0];
+            localStorage.setItem('products', JSON.stringify(products)); //save copy of JSON string to local storage so it's handy for future access
+            console.log("Products loaded externally");
+            console.log(products);
+        }
     }
+    request.send();
 }
-request.send();
-
 for (let i = 0; i < fields.length; i++) {
     fields[i].addEventListener("click", function (e) { hideError(fields[i]) });
 }
