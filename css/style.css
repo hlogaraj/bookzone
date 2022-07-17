@@ -118,7 +118,7 @@ a:hover, a:hover h1{
 	color: rgb(0, 85, 255);
 	text-decoration-color: rgb(0, 85, 255);
 }
-.signup-form, .new-product-form, .update-product-form {
+.signup-form, .new-product-form, .update-product-form, .checkout-form {
 	position: relative;
 	padding: 2em;
 	background: rgba(0, 85, 255,.07);
@@ -178,4 +178,9 @@ table {
 
   .total-data {
 	font-weight: bolder;
+  }
+
+  #checkout-button {
+	margin-top: 1em;
+	margin-bottom: 1em;
   }
