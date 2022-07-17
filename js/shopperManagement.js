@@ -70,7 +70,7 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		"textConsent": texts
 	}
 
-	if (shoppers[email] != null) {
+	if (shoppers != null && shoppers[email] != null) {
 		console.log("Email already used");
 		return;
 	} else {
