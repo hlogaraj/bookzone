@@ -21,7 +21,7 @@ if (window.XMLHttpRequest) {
 }
 
 if (localStorage.getItem('shoppers') != null) {
-	shoppers = JSON.parse(localStorage.getItem('shoppers'))[0];
+	shoppers = JSON.parse(localStorage.getItem('shoppers'));
 	console.log("Shoppers loaded locally");
 } else {
 	request.open('GET', 'js/shoppers.json'); //get and parse product objects from products.json
