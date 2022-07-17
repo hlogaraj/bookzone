@@ -28,7 +28,7 @@ if (localStorage.getItem('shoppers') != null) {
 	request.onreadystatechange = function () {
 		if ((request.status === 200) && (request.readyState === 4)) {
 			let json = JSON.parse(request.responseText);
-			shoppers = json[0];
+			shoppers = new Array(json[0]);
 			localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save copy of JSON string to local storage so it's handy for future access
 			console.log("Shoppers loaded externally");
 			console.log(shoppers);
