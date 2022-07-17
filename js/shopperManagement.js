@@ -74,7 +74,9 @@ function shopperToJSON(shopperInfo) { //takes care of storing values of the inpu
 		console.log("Email already used");
 		return;
 	} else {
-		shoppers.push({ email: shopperInfo });
+		let shopper = {};
+		shopper[email] = shopperInfo;
+		shoppers.push(shopper);
 		localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save JSON string to local storage
 		console.log("New shopper saved");
 		firstNameField.value = "";
